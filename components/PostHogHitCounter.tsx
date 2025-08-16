@@ -69,11 +69,11 @@ export function PostHogHitCounter({
      window.matchMedia?.("(prefers-color-scheme: dark)").matches);
 
   if (loading) {
-    return <CounterSkeleton style={style} isDark={isDark} className={className} />;
+    return <CounterSkeleton style={style} className={className} />;
   }
 
   if (error) {
-    return <CounterError style={style} isDark={isDark} className={className} />;
+    return <CounterError className={className} />;
   }
 
   const displayCount = count?.toString().padStart(6, "0") || "000000";
@@ -83,13 +83,13 @@ export function PostHogHitCounter({
       {style === "retro" && <RetroCounter count={displayCount} label={label} isDark={isDark} />}
       {style === "digital" && <DigitalCounter count={displayCount} label={label} isDark={isDark} />}
       {style === "minimal" && <MinimalCounter count={displayCount} label={label} isDark={isDark} />}
-      {style === "classic" && <ClassicCounter count={displayCount} label={label} isDark={isDark} />}
+      {style === "classic" && <ClassicCounter count={displayCount} label={label} />}
       {style === "neon" && <NeonCounter count={displayCount} label={label} isDark={isDark} />}
     </div>
   );
 }
 
-function CounterSkeleton({ style, isDark, className }: { style: CounterStyle; isDark: boolean; className: string }) {
+function CounterSkeleton({ style, className }: { style: CounterStyle; isDark?: boolean; className: string }) {
   return (
     <div className={`inline-block animate-pulse ${className}`}>
       <div className={`
@@ -105,7 +105,7 @@ function CounterSkeleton({ style, isDark, className }: { style: CounterStyle; is
   );
 }
 
-function CounterError({ style, isDark, className }: { style: CounterStyle; isDark: boolean; className: string }) {
+function CounterError({ className }: { style?: CounterStyle; isDark?: boolean; className: string }) {
   return (
     <div className={`inline-block ${className}`}>
       <div className="text-red-500 text-sm">Error loading counter</div>
@@ -167,7 +167,7 @@ function MinimalCounter({ count, label, isDark }: { count: string; label: string
   );
 }
 
-function ClassicCounter({ count, label, isDark }: { count: string; label: string; isDark: boolean }) {
+function ClassicCounter({ count, label }: { count: string; label: string; isDark?: boolean }) {
   return (
     <div className="inline-flex flex-col items-center">
       <div className="bg-gradient-to-b from-gray-100 to-gray-200 rounded-md px-3 py-2 shadow-md border border-gray-300">

@@ -12,11 +12,11 @@ interface WidgetPageProps {
   }>;
 }
 
-function WidgetContent({ searchParams }: { searchParams: any }) {
-  const style = (searchParams.style || "retro") as any;
+function WidgetContent({ searchParams }: { searchParams: Record<string, string | undefined> }) {
+  const style = (searchParams.style || "retro") as "retro" | "digital" | "minimal" | "classic" | "neon";
   const timeframe = searchParams.days === "all" ? "all" : parseInt(searchParams.days || "0") || "all";
   const label = searchParams.label || "Visitors";
-  const darkMode = (searchParams.dark || "auto") as any;
+  const darkMode = (searchParams.dark || "auto") as "auto" | "light" | "dark";
   const url = searchParams.url;
   const apiKey = searchParams.key;
 

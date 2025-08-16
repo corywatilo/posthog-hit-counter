@@ -123,10 +123,11 @@ export async function fetchPageViewsAggregate(
 }
 
 // Simplified client-side safe version that uses public endpoints
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function fetchPageViewsPublic(
-  apiKey: string,
-  url: string,
-  timeframe: number | "all"
+  _apiKey: string,
+  _url: string,
+  _timeframe: number | "all"
 ): Promise<number> {
   // This is a mock implementation for now
   // In production, you'd either:

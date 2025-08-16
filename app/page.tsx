@@ -104,9 +104,9 @@ export default function Home() {
                 </tr>
                 <tr className="border-b dark:border-gray-700">
                   <td className="py-2 text-gray-600 dark:text-gray-400">timeframe</td>
-                  <td className="py-2 text-gray-600 dark:text-gray-400">number | "all"</td>
+                  <td className="py-2 text-gray-600 dark:text-gray-400">number | &quot;all&quot;</td>
                   <td className="py-2 text-gray-600 dark:text-gray-400">all</td>
-                  <td className="py-2 text-gray-600 dark:text-gray-400">Days to count (or "all" for all time)</td>
+                  <td className="py-2 text-gray-600 dark:text-gray-400">Days to count (or &quot;all&quot; for all time)</td>
                 </tr>
                 <tr className="border-b dark:border-gray-700">
                   <td className="py-2 text-gray-600 dark:text-gray-400">label</td>
@@ -118,7 +118,7 @@ export default function Home() {
                   <td className="py-2 text-gray-600 dark:text-gray-400">darkMode</td>
                   <td className="py-2 text-gray-600 dark:text-gray-400">string</td>
                   <td className="py-2 text-gray-600 dark:text-gray-400">auto</td>
-                  <td className="py-2 text-gray-600 dark:text-gray-400">Dark mode: "auto", "light", or "dark"</td>
+                  <td className="py-2 text-gray-600 dark:text-gray-400">Dark mode: &quot;auto&quot;, &quot;light&quot;, or &quot;dark&quot;</td>
                 </tr>
               </tbody>
             </table>
