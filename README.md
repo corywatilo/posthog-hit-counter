@@ -1,0 +1,1 @@
+# posthog-hit-counter
