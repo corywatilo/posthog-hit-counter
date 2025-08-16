@@ -2,8 +2,14 @@
 
 import { useState, useEffect } from "react";
 
+interface ApiResponse {
+  count?: number;
+  demo?: boolean;
+  error?: string;
+}
+
 export default function DebugPage() {
-  const [apiResponse, setApiResponse] = useState<any>(null);
+  const [apiResponse, setApiResponse] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [testUrl, setTestUrl] = useState("http://localhost:8888");
