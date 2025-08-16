@@ -1,0 +1,21 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "env": {
+    "POSTHOG_PERSONAL_API_KEY": {
+      "description": "Your PostHog Personal API Key (starts with phx_). Get it from PostHog → Project Settings → Personal API Keys",
+      "required": true
+    },
+    "POSTHOG_PROJECT_ID": {
+      "description": "Your PostHog Project ID (the number in your PostHog URL)",
+      "required": true
+    },
+    "POSTHOG_HOST": {
+      "description": "PostHog API host (leave as default unless self-hosting)",
+      "value": "https://app.posthog.com",
+      "required": false
+    }
+  }
+}

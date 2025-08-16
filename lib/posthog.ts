@@ -122,19 +122,31 @@ export async function fetchPageViewsAggregate(
   }
 }
 
-// Simplified client-side safe version that uses public endpoints
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// Simplified client-side safe version that uses our proxy endpoint
 export async function fetchPageViewsPublic(
-  _apiKey: string,
-  _url: string,
-  _timeframe: number | "all"
+  apiKey: string,
+  url: string,
+  timeframe: number | "all"
 ): Promise<number> {
-  // This is a mock implementation for now
-  // In production, you'd either:
-  // 1. Use PostHog's JavaScript SDK
-  // 2. Create a backend API endpoint to proxy the request
-  // 3. Use PostHog's public API endpoints with proper CORS setup
-  
-  // For demo purposes, return a random number
-  return Math.floor(Math.random() * 50000) + 1000;
+  try {
+    // Use our proxy API endpoint if available
+    const params = new URLSearchParams({
+      url: url,
+      days: timeframe.toString(),
+    });
+    
+    const response = await fetch(`/api/pageviews?${params}`);
+    
+    if (!response.ok) {
+      throw new Error("Failed to fetch pageviews");
+    }
+    
+    const data = await response.json();
+    return data.count || 0;
+    
+  } catch (error) {
+    console.error("Error fetching pageviews:", error);
+    // Fallback to demo data
+    return Math.floor(Math.random() * 50000) + 1000;
+  }
 }

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostHog Hit Counter - Embed Test</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-section h2 {
+            color: #666;
+            font-size: 18px;
+            margin-top: 0;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        pre {
+            background: #f8f8f8;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PostHog Hit Counter - Embed Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Test 1: Retro Style (Default)</h2>
+        <p>Basic embed with default settings:</p>
+        <script 
+            src="https://posthog-hit-counter-twwqhm6ua-cwwwatilocoms-projects.vercel.app/embed" 
+            data-key="demo"
+        ></script>
+        <pre><code>&lt;script 
+    src="https://posthog-hit-counter-twwqhm6ua-cwwwatilocoms-projects.vercel.app/embed" 
+    data-key="demo"
+&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: Digital Style with Custom Label</h2>
+        <p>Digital seven-segment display:</p>
+        <script 
+            src="https://posthog-hit-counter-twwqhm6ua-cwwwatilocoms-projects.vercel.app/embed" 
+            data-key="demo"
+            data-style="digital"
+            data-label="Page Views"
+        ></script>
+        <pre><code>&lt;script 
+    src="https://posthog-hit-counter-twwqhm6ua-cwwwatilocoms-projects.vercel.app/embed" 
+    data-key="demo"
+    data-style="digital"
+    data-label="Page Views"
+&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3: Minimal Style</h2>
+        <p>Clean, modern text display:</p>
+        <script 
+            src="https://posthog-hit-counter-twwqhm6ua-cwwwatilocoms-projects.vercel.app/embed" 
+            data-key="demo"
+            data-style="minimal"
+            data-days="30"
+        ></script>
+        <pre><code>&lt;script 
+    src="https://posthog-hit-counter-twwqhm6ua-cwwwatilocoms-projects.vercel.app/embed" 
+    data-key="demo"
+    data-style="minimal"
+    data-days="30"
+&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 4: Classic Style</h2>
+        <p>Traditional mechanical counter look:</p>
+        <script 
+            src="https://posthog-hit-counter-twwqhm6ua-cwwwatilocoms-projects.vercel.app/embed" 
+            data-key="demo"
+            data-style="classic"
+            data-label="Visitors Today"
+        ></script>
+        <pre><code>&lt;script 
+    src="https://posthog-hit-counter-twwqhm6ua-cwwwatilocoms-projects.vercel.app/embed" 
+    data-key="demo"
+    data-style="classic"
+    data-label="Visitors Today"
+&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 5: Neon Style</h2>
+        <p>Cyberpunk glow effect:</p>
+        <script 
+            src="https://posthog-hit-counter-twwqhm6ua-cwwwatilocoms-projects.vercel.app/embed" 
+            data-key="demo"
+            data-style="neon"
+            data-label="Total Hits"
+        ></script>
+        <pre><code>&lt;script 
+    src="https://posthog-hit-counter-twwqhm6ua-cwwwatilocoms-projects.vercel.app/embed" 
+    data-key="demo"
+    data-style="neon"
+    data-label="Total Hits"
+&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="test-section">
+        <h2>Available Parameters</h2>
+        <ul>
+            <li><code>data-key</code> - Your PostHog API key (use "demo" for testing)</li>
+            <li><code>data-style</code> - Counter style: retro, digital, minimal, classic, neon</li>
+            <li><code>data-days</code> - Timeframe in days or "all" for all time</li>
+            <li><code>data-label</code> - Custom label text</li>
+            <li><code>data-dark</code> - Dark mode: auto, light, dark</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Testing Notes</h2>
+        <p>✅ The embed script is hosted at: <code>/embed</code></p>
+        <p>✅ It creates an iframe that loads the widget from: <code>/widget</code></p>
+        <p>✅ Currently using demo data (random numbers)</p>
+        <p>✅ Ready for production once PostHog API is connected</p>
+    </div>
+</body>
+</html>

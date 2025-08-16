@@ -8,9 +8,27 @@ export default function Home() {
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             PostHog Hit Counter
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
             Skeuomorphic, embeddable hit counters powered by PostHog analytics
           </p>
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 max-w-2xl mx-auto">
+            <p className="text-sm text-blue-800 dark:text-blue-300 mb-2">
+              📊 <strong>These counters show demo data.</strong> To display real PostHog analytics:
+            </p>
+            <ol className="text-sm text-blue-700 dark:text-blue-400 text-left list-decimal list-inside space-y-1">
+              <li>Deploy your own instance with the button below (free, 5 minutes)</li>
+              <li>Add your PostHog API credentials</li>
+              <li>Embed the counter on any website</li>
+            </ol>
+            <a 
+              href="https://github.com/your-username/posthog-hit-counter#-quick-start-5-minutes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-3 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition-colors"
+            >
+              Deploy Your Own →
+            </a>
+          </div>
         </header>
 
         <section className="mb-12">
@@ -65,13 +83,18 @@ export default function Home() {
   label="Visitors"
 />
 
-// Embed Script
+// Embed Script (Deploy your own - see README)
 <script 
-  src="https://your-domain.com/embed" 
-  data-key="phc_..." 
+  src="https://my-hit-counter.vercel.app/embed" 
   data-style="digital" 
   data-days="all"
   data-label="Page Views"
+></script>
+
+// Demo with random data
+<script 
+  src="https://posthog-hit-counter.vercel.app/embed" 
+  data-style="retro"
 ></script>`}</code>
             </pre>
           </div>

@@ -40,7 +40,9 @@ export async function GET() {
       url: window.location.href
     });
     
-    iframe.src = '${process.env.NEXT_PUBLIC_APP_URL || "https://posthog-hit-counter.vercel.app"}/widget?' + params.toString();
+    // Use the same origin as the script source
+    const scriptUrl = new URL(script.src);
+    iframe.src = scriptUrl.origin + '/widget?' + params.toString();
     
     container.appendChild(iframe);
     
