@@ -14,6 +14,7 @@ export default function DebugPage() {
   const [error, setError] = useState<string | null>(null);
   const [testUrl, setTestUrl] = useState("http://localhost:8888");
   const [days, setDays] = useState("all");
+  const [mounted, setMounted] = useState(false);
 
   const testApiEndpoint = async () => {
     setLoading(true);
@@ -39,10 +40,11 @@ export default function DebugPage() {
   };
 
   useEffect(() => {
+    setMounted(true);
     // Check environment variables (client-side check)
     const envCheck = {
       hasPostHogKey: !!process.env.NEXT_PUBLIC_POSTHOG_KEY_SET,
-      currentUrl: typeof window !== "undefined" ? window.location.href : "N/A",
+      currentUrl: window.location.href,
     };
     console.log("Environment check:", envCheck);
   }, []);
@@ -112,7 +114,7 @@ export default function DebugPage() {
             <div className="flex justify-between">
               <span>Deployment URL:</span>
               <code className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
-                {typeof window !== "undefined" ? window.location.origin : "N/A"}
+                {mounted ? window.location.origin : "Loading..."}
               </code>
             </div>
             <div className="flex justify-between">
@@ -130,19 +132,14 @@ export default function DebugPage() {
             This counter should work if environment variables are set:
           </p>
           <div className="border border-gray-300 dark:border-gray-600 rounded-lg p-4">
-            <script 
-              dangerouslySetInnerHTML={{
-                __html: `
-                  (function() {
-                    const container = document.createElement('div');
-                    container.innerHTML = '<iframe src="/widget?style=retro&days=all&url=' + 
-                      encodeURIComponent(window.location.href) + 
-                      '" style="border:none;width:200px;height:80px;"></iframe>';
-                    document.currentScript.parentNode.insertBefore(container, document.currentScript);
-                  })();
-                `
-              }}
-            />
+            {mounted ? (
+              <iframe 
+                src={`/widget?style=retro&days=all&url=${encodeURIComponent(window.location.href)}`}
+                style={{ border: "none", width: "200px", height: "80px" }}
+              />
+            ) : (
+              <div className="w-[200px] h-[80px] bg-gray-200 dark:bg-gray-700 animate-pulse rounded" />
+            )}
           </div>
         </div>
 
