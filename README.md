@@ -61,13 +61,25 @@ Once redeployed, your counter is ready! Use it anywhere:
 
 #### As an Embed Script
 ```html
-<!-- Replace 'my-hit-counter' with your Vercel app name -->
+<!-- IMPORTANT: Use YOUR deployment URL, not the demo! -->
+<!-- ❌ WRONG: https://posthog-hit-counter.vercel.app (this is the demo) -->
+<!-- ✅ RIGHT: https://YOUR-DEPLOYMENT.vercel.app (your deployment with your API key) -->
+
 <script 
-  src="https://my-hit-counter.vercel.app/embed" 
+  src="https://YOUR-DEPLOYMENT.vercel.app/embed" 
   data-style="retro"
   data-days="30"
   data-label="Page Views"
 ></script>
+```
+
+#### For React/Next.js
+```jsx
+<Script
+  src="https://YOUR-DEPLOYMENT.vercel.app/embed"
+  strategy="lazyOnload"
+  data-style="digital"
+/>
 ```
 
 #### Test It First

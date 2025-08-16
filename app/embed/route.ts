@@ -4,11 +4,12 @@ import { NextResponse } from "next/server";
 export async function GET() {
   const embedScript = `
 (function() {
-  // Find all script tags with our data attributes
-  const scripts = document.querySelectorAll('script[src*="hit-counter"][data-key]');
+  // Find all script tags with our embed script
+  const scripts = document.querySelectorAll('script[src*="/embed"]');
   
   scripts.forEach(function(script) {
-    const apiKey = script.getAttribute('data-key');
+    // data-key is optional - if not provided, server will use its own env vars
+    const apiKey = script.getAttribute('data-key') || '';
     const style = script.getAttribute('data-style') || 'retro';
     const days = script.getAttribute('data-days') || 'all';
     const label = script.getAttribute('data-label') || 'Visitors';

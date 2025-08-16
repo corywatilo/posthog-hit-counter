@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Localhost Test for PostHog Hit Counter</title>
+</head>
+<body>
+    <h1>Testing PostHog Hit Counter on Localhost</h1>
+    
+    <h2>Step 1: Replace with YOUR deployment URL</h2>
+    <p>Change "YOUR-HIT-COUNTER" to your actual Vercel deployment URL:</p>
+    
+    <script 
+        src="https://YOUR-HIT-COUNTER.vercel.app/embed"
+        data-style="retro"
+    ></script>
+    
+    <hr>
+    
+    <h2>Common Issues:</h2>
+    <ul>
+        <li>❌ Using posthog-hit-counter.vercel.app (demo site without your credentials)</li>
+        <li>✅ Using your-deployment.vercel.app (your deployment with your credentials)</li>
+    </ul>
+    
+    <h2>To Deploy Your Own:</h2>
+    <ol>
+        <li>Go to: <a href="https://github.com/corywatilo/posthog-hit-counter">GitHub Repo</a></li>
+        <li>Click "Deploy with Vercel" button</li>
+        <li>Add YOUR PostHog credentials during deployment</li>
+        <li>Use YOUR deployment URL in the script src</li>
+    </ol>
+    
+    <h2>Debug Your Deployment:</h2>
+    <p>Once deployed, visit: <code>https://YOUR-HIT-COUNTER.vercel.app/debug</code></p>
+</body>
+</html>
