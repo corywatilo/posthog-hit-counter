@@ -1,0 +1,54 @@
+{
+  "name": "posthog-hit-counter",
+  "version": "0.1.0",
+  "description": "Skeuomorphic, embeddable hit counter powered by PostHog",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:lib": "tsup",
+    "start": "next start",
+    "lint": "next lint",
+    "prepublishOnly": "npm run build:lib"
+  },
+  "dependencies": {
+    "next": "15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.0",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5",
+    "tsup": "^8.0.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "keywords": [
+    "posthog",
+    "analytics",
+    "hit-counter",
+    "visitor-counter",
+    "page-views",
+    "react",
+    "nextjs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/posthog-hit-counter"
+  }
+}
