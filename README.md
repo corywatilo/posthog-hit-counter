@@ -19,7 +19,7 @@ Since PostHog requires secure API keys, you'll need to deploy your own instance.
 
 ### Step 1: Deploy to Vercel (2 min)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fposthog-hit-counter&env=POSTHOG_PERSONAL_API_KEY,POSTHOG_PROJECT_ID&envDescription=PostHog%20API%20credentials%20for%20your%20hit%20counter&envLink=https%3A%2F%2Fgithub.com%2Fyour-username%2Fposthog-hit-counter%23step-2-get-posthog-credentials&project-name=my-hit-counter&repository-name=my-hit-counter)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcorywatilo%2Fposthog-hit-counter&env=POSTHOG_PERSONAL_API_KEY,POSTHOG_PROJECT_ID,POSTHOG_HOST&envDescription=PostHog%20API%20credentials%20for%20your%20hit%20counter&envLink=https%3A%2F%2Fgithub.com%2Fcorywatilo%2Fposthog-hit-counter%23step-2-get-posthog-credentials&project-name=my-hit-counter&repository-name=my-hit-counter)
 
 1. Click the **"Deploy with Vercel"** button above
 2. Sign in to Vercel (or create a free account)

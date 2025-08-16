@@ -21,7 +21,7 @@ export default function Home() {
               <li>Embed the counter on any website</li>
             </ol>
             <a 
-              href="https://github.com/your-username/posthog-hit-counter#-quick-start-5-minutes"
+              href="https://github.com/corywatilo/posthog-hit-counter#-quick-start-5-minutes"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-3 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition-colors"
