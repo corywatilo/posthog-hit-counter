@@ -32,33 +32,47 @@ export async function GET(request: NextRequest) {
     const projectId = process.env.POSTHOG_PROJECT_ID || "1"; // Set your project ID
     const host = process.env.POSTHOG_HOST || "https://app.posthog.com";
     
-    const params = new URLSearchParams({
-      events: JSON.stringify([{ id: "$pageview" }]),
-      properties: JSON.stringify({
-        $current_url: url,
-      }),
-      after: after.toISOString(),
-      before: now.toISOString(),
+    // Use the query endpoint which works better with Personal API Keys
+    const body = {
+      query: {
+        kind: "EventsQuery",
+        select: ["count()"],
+        where: [
+          `event = '$pageview'`,
+          `properties.$current_url = '${url}'`
+        ],
+        after: after.toISOString(),
+        before: now.toISOString(),
+      }
+    };
+
+    const apiUrl = `${host}/api/projects/${projectId}/query`;
+    console.log("Calling PostHog API:", apiUrl);
+    console.log("Query body:", JSON.stringify(body, null, 2));
+    
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     });
 
-    const response = await fetch(
-      `${host}/api/projects/${projectId}/events?${params}`,
-      {
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`PostHog API error ${response.status}:`, errorText);
       throw new Error(`PostHog API error: ${response.status}`);
     }
 
     const data = await response.json();
+    console.log("PostHog response:", JSON.stringify(data, null, 2));
+    
+    // Extract count from query response
+    const count = data.results?.[0]?.[0] || 0;
     
     return NextResponse.json({ 
-      count: data.results?.length || 0,
+      count: count,
       demo: false 
     });
     

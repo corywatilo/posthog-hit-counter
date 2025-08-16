@@ -4,10 +4,14 @@ import { NextResponse } from "next/server";
 export async function GET() {
   const embedScript = `
 (function() {
+  console.log('PostHog Hit Counter: Initializing...');
+  
   // Find all script tags with our embed script
   const scripts = document.querySelectorAll('script[src*="/embed"]');
+  console.log('PostHog Hit Counter: Found', scripts.length, 'script tags');
   
-  scripts.forEach(function(script) {
+  scripts.forEach(function(script, index) {
+    console.log('PostHog Hit Counter: Processing script', index, script.src);
     // data-key is optional - if not provided, server will use its own env vars
     const apiKey = script.getAttribute('data-key') || '';
     const style = script.getAttribute('data-style') || 'retro';
@@ -43,9 +47,12 @@ export async function GET() {
     
     // Use the same origin as the script source
     const scriptUrl = new URL(script.src);
-    iframe.src = scriptUrl.origin + '/widget?' + params.toString();
+    const iframeSrc = scriptUrl.origin + '/widget?' + params.toString();
+    console.log('PostHog Hit Counter: Creating iframe with src:', iframeSrc);
     
+    iframe.src = iframeSrc;
     container.appendChild(iframe);
+    console.log('PostHog Hit Counter: Iframe added to page');
     
     // Adjust iframe size once loaded
     iframe.onload = function() {
